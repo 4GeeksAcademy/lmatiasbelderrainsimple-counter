@@ -1,26 +1,36 @@
 import React from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import Cards from "./cards.jsx";
 
 //create your first component
-const Home = () => {
+const Home = ({ digito }) => {
 	return (
-		<div className="text-center">
-            
+		<div className="d-flex justify-content-center ">
+			<div className="card mb-3 bg-dark m-1" style={{ width: "6rem" }}>
+				<img src="https://th.bing.com/th/id/OIP.2GLVwxJr5C4dxwhkjsTC2gHaHa?rs=1&pid=ImgDetMain"
+					style={{ height: "8rem" }}
+				/>
+			</div>
+			<Cards
+				numero={Math.floor(digito / 100000 % 10)}
+			/>
+			<Cards
+				numero={Math.floor(digito / 10000 % 10)}
+			/>
+			<Cards
+				numero={Math.floor(digito / 1000 % 10)}
+			/>
+			<Cards
+				numero={Math.floor(digito / 100 % 10)}
+			/>
+			<Cards
+				numero={Math.floor(digito / 10 % 10)}
+			/>
+			<Cards
+				numero={digito % 10}
+			/>
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
 		</div>
 	);
 };

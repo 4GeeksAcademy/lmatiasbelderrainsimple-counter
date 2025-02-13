@@ -10,9 +10,15 @@ import '../styles/index.css'
 
 // components
 import Home from './components/Home';
+let unidad = 0
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+setInterval(() => {
+  unidad++
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <Home
+        digito={unidad}
+      />
+    </React.StrictMode>
+  )
+}, 1000)
